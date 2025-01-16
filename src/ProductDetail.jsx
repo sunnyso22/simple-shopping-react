@@ -26,7 +26,7 @@ const ProductDetail = () => {
                 <div className="flex flex-col items-center gap-6 w-1/2 bg-orange-100 p-6 rounded-3xl">
                     <div className="flex flex-col items-center justify-center gap-3 bg-cyan-100 rounded-3xl h-[480px] w-[384px]">
                         <img
-                            src={productDetail.image}
+                            src={`${import.meta.env.BASE_URL}`+productDetail.image}
                             alt=""
                             className="object-cover rounded-xl h-60 w-72"
                         />

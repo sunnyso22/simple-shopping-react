@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router"
-import './App.css'
 import Home from "./Home"
 import Checkout from "./Checkout"
 import Products from "./Products"
@@ -30,7 +29,7 @@ function App() {
     const [cartItems, setCartItems] = useState([])
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/simple-shopping-react">
             <CartContext.Provider value={{cartItems, setCartItems}}>
                 <nav className="flex py-4 px-4 items-center justify-between">
                     <Link

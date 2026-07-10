@@ -2,7 +2,13 @@ import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Product } from "../Products";
 
-const QtyBtn = ({ productInfo }: { productInfo: Product }) => {
+const QtyBtn = ({
+  productInfo,
+  removeProduct,
+}: {
+  productInfo: Product;
+  removeProduct?: () => void;
+}) => {
   const { cartItems, setCartItems } = useContext(CartContext);
 
   const productIndexInCart = cartItems.findIndex((element) => {
@@ -58,6 +64,28 @@ const QtyBtn = ({ productInfo }: { productInfo: Product }) => {
         >
           Add to Cart
         </button>
+      ) : removeProduct ? (
+        <div className="flex items-center justify-center gap-3">
+          <button
+            onClick={handleAdd}
+            className="bg-cyan-300 text-3xl px-3 py-1 rounded-full hover:bg-cyan-500"
+          >
+            +
+          </button>
+          <p className="text-3xl">{qtyInCart}</p>
+          <button
+            onClick={handleSubtract}
+            className="bg-cyan-300 text-3xl px-3 py-1 rounded-full hover:bg-cyan-500"
+          >
+            -
+          </button>
+          <button
+            onClick={removeProduct}
+            className="bg-red-300 text-3xl px-3 py-1 rounded-full hover:bg-red-500"
+          >
+            Remove
+          </button>
+        </div>
       ) : (
         <div className="flex items-center justify-center gap-3">
           <button

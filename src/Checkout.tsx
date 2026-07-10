@@ -18,6 +18,10 @@ const Checkout = () => {
     0,
   );
 
+  const handleRemove = (id: number) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+  };
+
   return (
     <section className="container mx-auto">
       <h1 className="text-4xl font-extrabold text-center py-6">
@@ -54,7 +58,10 @@ const Checkout = () => {
                     <p className="text-black/60">{item.description}</p>
                     <p className="text-xl">${item.price}</p>
                   </div>
-                  <QtyBtn productInfo={item} />
+                  <QtyBtn
+                    productInfo={item}
+                    removeProduct={() => handleRemove(item.id)}
+                  />
                 </div>
               </div>
             ))}
@@ -68,10 +75,10 @@ const Checkout = () => {
           >
             Clear Cart
           </button>
-          <div className="flex flex-col items-center justify-center gap-4 bg-violet-100 rounded-3xl w-[350px] h-[500px]">
+          <div className="flex flex-col p-6 items-center justify-center gap-4 bg-violet-100 rounded-3xl w-[350px] h-[500px]">
             <h2 className="text-4xl">Total ({totalQuantity})</h2>
             <h3 className="text-3xl">${totalAmount}</h3>
-            <button className="bg-purple-300 text-3xl px-3 py-1 rounded-full hover:bg-purple-500">
+            <button className="w-full bg-purple-300 text-3xl px-3 py-1 rounded-full hover:bg-purple-500">
               Pay
             </button>
           </div>

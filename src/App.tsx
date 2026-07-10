@@ -25,7 +25,7 @@ function App() {
   ];
 
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/simple-shopping-react">
       <nav className="flex py-4 px-4 items-center justify-between">
         <Link to="/" className="text-4xl font-extrabold italic">
           Sunny Fruits

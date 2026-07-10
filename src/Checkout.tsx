@@ -41,7 +41,7 @@ const Checkout = () => {
               >
                 <Link to={"/products/" + item.id}>
                   <img
-                    src={`${import.meta.env.BASE_URL}` + item.image}
+                    src={`${import.meta.env.BASE_URL}/` + item.image}
                     alt=""
                     className="object-cover h-60 w-72"
                   />

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useOutlet } from "react-router";
-import QtyBtn from "./components/QtyBtn";
+import { Link, useNavigate, useOutlet } from "react-router";
 import { CartItems } from "./context/CartContext";
 
 export type Product = Omit<CartItems, "quantity">;
@@ -9,6 +8,7 @@ const Products = () => {
   let [productList, setProductList] = useState<Product[]>([]);
 
   const outlet = useOutlet();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(
@@ -25,7 +25,7 @@ const Products = () => {
           {productList.map((item) => (
             <li
               key={item.id}
-              className="flex flex-col items-center justify-center gap-3 bg-cyan-100 rounded-3xl h-[480px] w-[384px] hover:border-4 hover:border-cyan-500"
+              className="flex flex-col items-center justify-center gap-3 bg-cyan-100 rounded-3xl h-[480px] w-[384px]"
             >
               <Link to={"/products/" + item.id}>
                 <img
@@ -38,7 +38,14 @@ const Products = () => {
                 <h3 className="text-2xl font-semibold">{item.productName}</h3>
                 <p className="text-xl">${item.price}</p>
               </div>
-              <QtyBtn productInfo={item} />
+              <div className="flex items-center justify-between gap-3">
+                <button
+                  onClick={() => navigate(`/products/${item.id}`)}
+                  className="bg-green-300 text-2xl px-3 py-1 rounded-full hover:bg-green-500"
+                >
+                  View Details
+                </button>
+              </div>
             </li>
           ))}
         </ul>

@@ -50,7 +50,7 @@ const QtyBtn = ({ productInfo }: { productInfo: Product }) => {
   };
 
   return (
-    <div className="h-0">
+    <div>
       {qtyInCart === 0 ? (
         <button
           onClick={handleAdd}

@@ -3,7 +3,7 @@ import { CartContext } from "./CartContext";
 import { CartItems } from "./CartContext";
 
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cartItems, setCartItems] = useState<CartItems>([]);
+  const [cartItems, setCartItems] = useState<CartItems[]>([]);
 
   return (
     <CartContext value={{ cartItems, setCartItems }}>{children}</CartContext>

@@ -3,7 +3,7 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Products from "./Products";
 import ProductDetail from "./components/ProductDetail";
-import CartContextProvider from "./context/CartContextProvider";
+import { CartContextProvider } from "./context/CartContext";
 
 function App() {
   const links = [
